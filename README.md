@@ -1,1 +1,1 @@
-#### I am a researcher in Computational Linguistics
+#### Profile of a researcher in Computational Linguistics
