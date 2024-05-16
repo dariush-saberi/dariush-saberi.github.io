@@ -18,18 +18,20 @@
          #personal{width:100px;margin-top:10px;margin-left:30px;border-radius:10px;}
          #photo_container{text-align:left}
          #name_container{text-align:left}
+         #body_container{width:70%;margin:0 auto;margin-top:50px;background:#2b233f;color:#fff}
           @media only screen and (max-width: 768px),
           only screen and (max-device-width: 768px) {
-            #personal{width:100px;margin-top:10px;margin-left:30px;border-radius:10px;}
-            #photo_container{width:100%;text-align:center;}
-            #name_container{width:100%;text-align:center;}
+               #personal{width:100px;margin-top:10px;margin-left:30px;border-radius:10px;}
+               #photo_container{width:100%;text-align:center;}
+               #name_container{width:100%;text-align:center;}
+               #body_container{width:100%;margin:0 auto;margin-top:50px;background:#2b233f;color:#fff}
           }
       </style>
    </head>
    <body>
       <div class="w3-container">
          <div class="w3-container"></div>
-         <div class="w3-row w3-border w3-card-8" style="width:70%;margin:0 auto;margin-top:50px;background:#2b233f;color:#fff">
+         <div id="body_container" class="w3-row w3-border w3-card-8">
             <div class="w3-container w3-half">
                <div class="w3-container" style="width:95%;margin:0 auto;">
                   <div id="photo_container"><img id="personal" src='https://assistant.hk/static/personal/small_personal_200px.png'></div>
