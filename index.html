@@ -1,6 +1,7 @@
 <!-- a simple bootstrap 5 page with a narrow header and no footer -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +31,7 @@
         .research {
             cursor: pointer;
         }
+
         .chat {
             cursor: pointer;
         }
@@ -52,7 +54,8 @@
                     <li><a href="#" class="nav-link px-2 text-white publist">Publications</a></li>
                     <li><a href="#" class="nav-link px-2 text-white contact">Contact</a></li>
                 </ul>
-                <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;"> <span class="chat">Chat with my CV</span>
+                <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;"> <span
+                    class="chat">Chat with my CV</span>
             </div>
         </div>
     </header>
@@ -63,17 +66,20 @@
                 <div class="col-md-8">
                     <div class="h-80 p-4 bg-light">
                         <h1 class="display-5 fw-bold">Dariush Saberi (PhD)</h1>
-                        <p class="col-md-8 fs-4">Educational AI Developer<br>LKS Faculty of Medicine,<br>The University of Hong Kong
+                        <p class="col-md-8 fs-4">Educational AI Developer<br>LKS Faculty of Medicine,<br>The University
+                            of Hong Kong
                         </p>
                         <p>
-                            <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;"> <span class="chat">Chat with my CV</span>
+                            <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;">
+                            <span class="chat">Chat with my CV</span>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="h-80 p-4 bg-light border rounded-3" style="min-height:200px;background-image: url('https://feelface.com/static/bg_ai_sky.jpg'); background-size: cover; background-repeat: no-repeat;">
-                    <!-- add a button "Regenerate Image "-->
-                        <button type="button" class="btn btn-primary" style="margin-bottom: 10px;">Regenerate background</button>
+                    <div id="bgpreview" class="h-80 p-4 bg-light border rounded-3" style="min-height:200px;">
+                        <!-- add a button "Regenerate Image "-->
+                        <button id="regenerate" type="button" class="btn btn-primary"
+                            style="margin-bottom: 10px;">Regenerate background</button>
                     </div>
                 </div>
             </div>
@@ -311,7 +317,8 @@
                                 collection of AI educational tools for language teaching and learning</i></p>
                         <p><a href="https://github.com/dariush-saberi/formalwriter" target="_blank">FormalWriter</a>
                             <i>a Computer Assisted Langauge Learning Tool for L2 Learners of Academic English
-                                Writing</i></p>
+                                Writing</i>
+                        </p>
 
                     </div>
                     <div class="modal-footer">
@@ -320,7 +327,7 @@
                 </div>
             </div>
         </div>
-         <!-- a modal with opens on click to chat with the chatbot the footer should contain a send form -->
+        <!-- a modal with opens on click to chat with the chatbot the footer should contain a send form -->
         <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
@@ -330,7 +337,9 @@
                     </div>
                     <div class="modal-body text-dark">
                         <br><b>Chat with my CV</b><br>
-                        <p>Hi, I am Dariush Saberi, an Educational AI Manager at The Faculty of Medicine, The University of Hong Kong. I am here to help you with any questions you may have about my research, publications, or career. Feel free to ask me anything!</p>
+                        <p>Hi, I am Dariush Saberi, an Educational AI Manager at The Faculty of Medicine, The University
+                            of Hong Kong. I am here to help you with any questions you may have about my research,
+                            publications, or career. Feel free to ask me anything!</p>
                         <p>How can I help you today?</p>
                     </div>
                     <div class="modal-footer">
@@ -345,26 +354,28 @@
                 </div>
             </div>
         </div>
-        <br><br>     
+        <br><br>
     </div>
     <!-- add footer with light gray background and min-height of 100px and text-align center -->
     <footer class="p-1 bg-dark text-center" style="min-height: 100px;width: 100%;">
         <div class="container">
             <p class="text-muted">
-                <span style="font-size: 12px;">This profile uses LLMs to generate text and Diffusion models to generate image. Large Language Models (LLMs) can produce incorrect or misleading information.</span><br>
-                <span style="font-size: 12px;">For more information, please contact me <a class="link-white" href="mailto:dariush@hku.hk">here</a>.
+                <span style="font-size: 12px;">This profile uses LLMs to generate text and Diffusion models to generate
+                    image. Large Language Models (LLMs) can produce incorrect or misleading information.</span><br>
+                <span style="font-size: 12px;">For more information, please contact me <a class="link-white"
+                        href="mailto:dariush@hku.hk">here</a>.
                 </span>
                 <br>
                 <span style="font-size: 12px;">&copy; 2024 Dariush Saberi. All rights reserved.</span>
-                
+
             </p>
-            
+
         </div>
     </footer>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-        
+
 
     <script>
         // open the modal on click
@@ -401,6 +412,7 @@
             var db = event.target.result;
             var objectStore = db.createObjectStore("userPreferences", { keyPath: "id" });
             objectStore.createIndex("background", "background", { unique: false });
+            firstImage();
         };
         // convert the background image to base64 and add it to the indexeddb
         function getBase64Image(img) {
@@ -410,21 +422,24 @@
             var ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0);
             var dataURL = canvas.toDataURL("image/png");
-            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+            return dataURL;
         }
-        // add the image to the indexeddb
-        var img = new Image();
-        img.src = 'https://feelface.com/static/bg_ai_sky.jpg';
-        img.crossOrigin = 'Anonymous';
-        img.onload = function () {
-            var base64 = getBase64Image(img);
-            var request = db.transaction(["userPreferences"], "readwrite")
-                .objectStore("userPreferences")
-                .add({ id: 1, background: base64 });
-            request.onsuccess = function (event) {
-                console.log("Image added to indexeddb");
+        // 
+        function firstImage() {
+            // add the image to the indexeddb
+            var img = new Image();
+            img.src = 'https://feelface.com/static/bg_ai_sky.jpg';
+            img.crossOrigin = 'Anonymous';
+            img.onload = function () {
+                var base64 = getBase64Image(img);
+                var request = db.transaction(["userPreferences"], "readwrite")
+                    .objectStore("userPreferences")
+                    .add({ id: 1, background: base64 });
+                request.onsuccess = function (event) {
+                    console.log("Image added to indexeddb");
+                };
             };
-        };
+        }
 
         // Await 2 seconds before getting background image from indexeddb
         setTimeout(function () {
@@ -437,8 +452,15 @@
             request.onsuccess = function (event) {
                 // Do something with the request.result!
                 var img = new Image();
-                img.src = 'data:image/png;base64,' + request.result.background;
+                img.src = request.result.background;
                 img.onload = function () {
+                    // add background to bgpreview
+                    document.getElementById('bgpreview').style.backgroundImage = 'url(' + img.src + ')';
+                    // make bgpreview background cover
+                    document.getElementById('bgpreview').style.backgroundSize = 'cover';
+                    // make bgpreview background no repeat
+                    document.getElementById('bgpreview').style.backgroundRepeat = 'no-repeat';
+
                     // add body background
                     document.body.style.backgroundImage = 'url(' + img.src + ')';
                     // make body background cover
@@ -448,11 +470,48 @@
                 };
             };
         }, 2000);
-        
 
+        $('#regenerate').click(function () {
+            //change the text of regenerate button to "Regenerating..."
+            document.getElementById('regenerate').innerHTML = 'Regenerating...';
+
+            fetch('https://feelface.com/getbg/')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    datasrc = 'data:image/png;base64,' + data;
+                    var img = new Image();
+                    img.src = datasrc;
+                    img.crossOrigin = 'Anonymous';
+                    img.onload = function () {
+                        var request = db.transaction(["userPreferences"], "readwrite")
+                            .objectStore("userPreferences")
+                            .put({ id: 1, background: datasrc });
+                        request.onsuccess = function (event) {
+                            console.log("Image added to indexeddb");
+                        };
+                        // add background to bgpreview
+                        document.getElementById('bgpreview').style.backgroundImage = 'url(' + img.src + ')';
+                        // make bgpreview background cover
+                        document.getElementById('bgpreview').style.backgroundSize = 'cover';
+                        // make bgpreview background no repeat
+                        document.getElementById('bgpreview').style.backgroundRepeat = 'no-repeat';
+
+                        // add body background
+                        document.body.style.backgroundImage = 'url(' + img.src + ')';
+                        // make body background cover
+                        document.body.style.backgroundSize = 'cover';
+                        // make body background no repeat
+                        document.body.style.backgroundRepeat = 'no-repeat';
+                    };
+                    //change the text of regenerate button back to "Regenerate background"
+                    document.getElementById('regenerate').innerHTML = 'Regenerate background';
+                });
+        });
 
 
     </script>
 
 </body>
+
 </html>
