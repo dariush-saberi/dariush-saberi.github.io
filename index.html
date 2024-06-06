@@ -467,6 +467,13 @@
                     document.body.style.backgroundSize = 'cover';
                     // make body background no repeat
                     document.body.style.backgroundRepeat = 'no-repeat';
+
+                    // add chatModal background
+                    document.getElementById('chatModal').style.backgroundImage = 'url(' + img.src + ')';
+                    // make chatModal background cover
+                    document.getElementById('chatModal').style.backgroundSize = 'cover';
+                    // make chatModal background no repeat
+                    document.getElementById('chatModal').style.backgroundRepeat = 'no-repeat';
                 };
             };
         }, 2000);
@@ -503,9 +510,33 @@
                         document.body.style.backgroundSize = 'cover';
                         // make body background no repeat
                         document.body.style.backgroundRepeat = 'no-repeat';
+
+                        // add chatModal background
+                        document.getElementById('chatModal').style.backgroundImage = 'url(' + img.src + ')';
+                        // make chatModal background cover
+                        document.getElementById('chatModal').style.backgroundSize = 'cover';
+                        // make chatModal background no repeat
+                        document.getElementById('chatModal').style.backgroundRepeat = 'no-repeat';
+
+                        //Other modals also need to be updated
+                        document.getElementById('aboutMeModal').style.backgroundImage = 'url(' + img.src + ')';
+                        document.getElementById('aboutMeModal').style.backgroundSize = 'cover';
+                        document.getElementById('aboutMeModal').style.backgroundRepeat = 'no-repeat';
+
+                        document.getElementById('researchModal').style.backgroundImage = 'url(' + img.src + ')';
+                        document.getElementById('researchModal').style.backgroundSize = 'cover';
+                        document.getElementById('researchModal').style.backgroundRepeat = 'no-repeat';
+
+                        document.getElementById('publicationsModal').style.backgroundImage = 'url(' + img.src + ')';
+                        document.getElementById('publicationsModal').style.backgroundSize = 'cover';
+                        document.getElementById('publicationsModal').style.backgroundRepeat = 'no-repeat';
+
+                        
+                        //change the text of regenerate button back to "Regenerate background"
+                        document.getElementById('regenerate').innerHTML = 'Regenerate background';
+
                     };
-                    //change the text of regenerate button back to "Regenerate background"
-                    document.getElementById('regenerate').innerHTML = 'Regenerate background';
+
                 });
         });
 
