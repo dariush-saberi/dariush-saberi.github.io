@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dariush Saberi</title>
+    <title>Dariush Saberi - Educational AI Manager</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- add jquery-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -30,10 +30,13 @@
         .research {
             cursor: pointer;
         }
+        .chat {
+            cursor: pointer;
+        }
     </style>
 </head>
 
-<body>
+<body style="background-image: url('https://feelface.com/static/bg_ai_sky.jpg'); background-size: cover; background-repeat: no-repeat;">
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -47,22 +50,31 @@
                     <li><a href="#" class="nav-link px-2 text-white research">Research</a></li>
                     <li><a href="#" class="nav-link px-2 text-white readmore">About Me</a></li>
                     <li><a href="#" class="nav-link px-2 text-white publist">Publications</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white contact">Contact</a></li>
                 </ul>
-                <a class="link-white" href=""><img src="https://feelface.com/static/stars_ai_small.png"
-                        style="width:50px;"> Chat with my CV</a>
+                <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;"> <span class="chat">Chat with my CV</span>
             </div>
         </div>
     </header>
     <div class="container">
-        <div class="p-5 mb-4 bg-light rounded-3"  style="height: 350px;">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Dariush Saberi (PhD)</h1>
-                <p class="col-md-8 fs-4">Educational AI Manager<br>The Faculty of Medicine,The University of Hong Kong
-                </p>
-                <p>
-                    <a class="link-class" href=""><img src="https://feelface.com/static/stars_ai_small.png"
-                            style="width:50px;"> Chat with my CV</a>
-                </p>
+        <div class="p-5 mb-4 bg-light rounded-3" style="height: 350px;">
+            <!-- two colums -->
+            <div class="row align-items-md-stretch">
+                <div class="col-md-8">
+                    <div class="h-80 p-4 bg-light">
+                        <h1 class="display-5 fw-bold">Dariush Saberi (PhD)</h1>
+                        <p class="col-md-8 fs-4">Educational AI Developer<br>LKS Faculty of Medicine,<br>The University of Hong Kong
+                        </p>
+                        <p>
+                            <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;"> <span class="chat">Chat with my CV</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="h-80 p-4 bg-light border rounded-3">
+                        
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row align-items-md-stretch">
@@ -82,6 +94,29 @@
                 </div>
             </div>
         </div>
+        <!-- a modal with opens on click to see "Contact" information -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">Contact</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        <br><b>Contact Information</b><br>
+                        <p>Email: <a href="mailto:dariush@hku.hk">dariush@hku.hk</a></p>
+                        <p>Phone: +852 5649 4865</p>
+                        <p>Address: The Faculty of Medicine, The University of Hong Kong, 21 Sassoon Road, Pokfulam,
+                            Hong Kong</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- a modal with opens on click to "read about me" -->
         <div class="modal fade" id="aboutMeModal" tabindex="-1" aria-labelledby="aboutMeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
@@ -284,6 +319,33 @@
                 </div>
             </div>
         </div>
+         <!-- a modal with opens on click to chat with the chatbot the footer should contain a send form -->
+        <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="chatModalLabel">Chat with my CV</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        <br><b>Chat with my CV</b><br>
+                        <p>Hi, I am Dariush Saberi, an Educational AI Manager at The Faculty of Medicine, The University of Hong Kong. I am here to help you with any questions you may have about my research, publications, or career. Feel free to ask me anything!</p>
+                        <p>How can I help you today?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Type your message here"
+                                    aria-label="Type your message here" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <script>
             // open the modal on click
             $('.publist').click(function () {
@@ -298,12 +360,25 @@
             $('.research').click(function () {
                 $('#researchModal').modal('show');
             });
+            $('.chat').click(function () {
+                $('#chatModal').modal('show');
+            });
+            $('.contact').click(function () {
+                $('#contactModal').modal('show');
+            });
 
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <br><br>
-        <footer><br><br><br><br></footer>
+        
+    </div>
+    <!-- add footer with light gray background and min-height of 100px and text-align center -->
+    <footer class="p-3 bg-dark text-center" style="min-height: 100px;width: 100%;">
+        <div class="container">
+            <span class="text-muted">Dariush Saberi - Educational AI Manager</span>
+        </div>
+    </footer>
 </body>
 
 </html>
