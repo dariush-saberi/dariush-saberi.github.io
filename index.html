@@ -37,30 +37,39 @@
         }
 
         #topcontainer {
-                min-height: 300px;
-            }
-        
+            min-height: 300px;
+        }
+
+        #leftcontainer {
+            min-height: 300px;
+        }
+
         #name {
             font-size: 40px;
             font-weight: bold;
         }
-        
-        #affiliation{
+
+        #affiliation {
             font-size: 20px;
         }
+
         @media (max-width: 768px) {
             #topcontainer {
                 min-height: 600px;
             }
+
+            #leftcontainer {
+                width: 130%;
+            }
+
             #name {
                 font-size: 30px;
             }
-            #affiliation{
+
+            #affiliation {
                 font-size: 16px;
             }
         }
-
-
     </style>
 </head>
 
@@ -90,7 +99,7 @@
             <!-- two colums -->
             <div class="row align-items-md-stretch">
                 <div id="leftcontainer" class="col-md-8">
-                    <div class="h-80 p-4 bg-light">
+                    <div class="p-4 bg-light">
                         <p id="name">Dariush Saberi (PhD)</p>
                         <p id="affiliation">Educational AI Developer<br>LKS Faculty of Medicine,<br>The University
                             of Hong Kong
@@ -102,7 +111,7 @@
                     </div>
                 </div>
                 <div id="rightcontainer" class="col-md-4">
-                    <div id="bgpreview" class="h-80 p-4 bg-light border rounded-3" style="min-height:200px;">
+                    <div id="bgpreview" class="p-4 bg-light border rounded-3" style="min-height:200px;">
                         <!-- add a button "Regenerate Image "-->
                         <button id="regenerate" type="button" class="btn btn-primary"
                             style="margin-bottom: 10px;">Regenerate background</button>
@@ -557,7 +566,7 @@
                         document.getElementById('publicationsModal').style.backgroundSize = 'cover';
                         document.getElementById('publicationsModal').style.backgroundRepeat = 'no-repeat';
 
-                        
+
                         //change the text of regenerate button back to "Regenerate background"
                         document.getElementById('regenerate').innerHTML = 'Regenerate background';
 
