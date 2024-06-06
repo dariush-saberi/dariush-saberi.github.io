@@ -36,7 +36,7 @@
     </style>
 </head>
 
-<body style="background-image: url('https://feelface.com/static/bg_ai_sky.jpg'); background-size: cover; background-repeat: no-repeat;">
+<body>
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -415,6 +415,7 @@
         // add the image to the indexeddb
         var img = new Image();
         img.src = 'https://feelface.com/static/bg_ai_sky.jpg';
+        img.crossOrigin = 'Anonymous';
         img.onload = function () {
             var base64 = getBase64Image(img);
             var request = db.transaction(["userPreferences"], "readwrite")
@@ -424,6 +425,30 @@
                 console.log("Image added to indexeddb");
             };
         };
+
+        // Await 2 seconds before getting background image from indexeddb
+        setTimeout(function () {
+            var transaction = db.transaction(["userPreferences"]);
+            var objectStore = transaction.objectStore("userPreferences");
+            var request = objectStore.get(1);
+            request.onerror = function (event) {
+                console.log("Unable to retrieve data from database!");
+            };
+            request.onsuccess = function (event) {
+                // Do something with the request.result!
+                var img = new Image();
+                img.src = 'data:image/png;base64,' + request.result.background;
+                img.onload = function () {
+                    // add body background
+                    document.body.style.backgroundImage = 'url(' + img.src + ')';
+                    // make body background cover
+                    document.body.style.backgroundSize = 'cover';
+                    // make body background no repeat
+                    document.body.style.backgroundRepeat = 'no-repeat';
+                };
+            };
+        }, 2000);
+        
 
 
 
