@@ -389,7 +389,7 @@
 
         // add an indexeddb "userPreferences" to store the user preferences
         var db;
-        var request = indexedDB.open("userPreferences", 1);
+        var request = indexedDB.open("userPreferences", 2);
         request.onerror = function (event) {
             console.log("error: ");
         };
@@ -401,6 +401,28 @@
             var db = event.target.result;
             var objectStore = db.createObjectStore("userPreferences", { keyPath: "id" });
             objectStore.createIndex("background", "background", { unique: false });
+        };
+        // convert the background image to base64 and add it to the indexeddb
+        function getBase64Image(img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+            var dataURL = canvas.toDataURL("image/png");
+            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+        }
+        // add the image to the indexeddb
+        var img = new Image();
+        img.src = 'https://feelface.com/static/bg_ai_sky.jpg';
+        img.onload = function () {
+            var base64 = getBase64Image(img);
+            var request = db.transaction(["userPreferences"], "readwrite")
+                .objectStore("userPreferences")
+                .add({ id: 1, background: base64 });
+            request.onsuccess = function (event) {
+                console.log("Image added to indexeddb");
+            };
         };
 
 
