@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dariush Saberi - Educational AI Manager</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha256-IUOUHAPazai08QFs7W4MbzTlwEWFo7z/4zw8YmxEiko=" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
     <!-- add jquery-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <style>
@@ -53,6 +55,10 @@
             font-size: 20px;
         }
 
+        footer p:last-child {
+            margin-bottom: 0;
+        }
+
         @media (max-width: 768px) {
             #topcontainer {
                 min-height: 600px;
@@ -73,7 +79,7 @@
     </style>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -94,305 +100,341 @@
             </div>
         </div>
     </header>
-    <div class="container">
-        <div id="topcontainer" class="p-5 mb-4 bg-light rounded-3" style="height: 350px;">
-            <!-- two colums -->
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div id="topcontainer" class="p-5 mb-4 bg-light rounded-3" style="height: 350px;">
+                <!-- two colums -->
+                <div class="row align-items-md-stretch">
+                    <div id="leftcontainer" class="col-md-8">
+                        <div class="p-4 bg-light">
+                            <p id="name">Dariush Saberi (PhD)</p>
+                            <p id="affiliation">Educational AI Developer<br>LKS Faculty of Medicine,<br>The University
+                                of Hong Kong
+                            </p>
+                            <p>
+                                <img class="chat" src="https://feelface.com/static/stars_ai_small.png"
+                                    style="width:50px;">
+                                <span class="chat">Chat with my CV</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="rightcontainer" class="col-md-4">
+                        <div id="bgpreview" class="p-4 bg-light border rounded-3" style="min-height:200px;">
+                            <!-- add a button "Regenerate Image "-->
+                            <button id="regenerate" type="button" class="btn btn-primary"
+                                style="margin-bottom: 10px;">Regenerate background</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row align-items-md-stretch">
-                <div id="leftcontainer" class="col-md-8">
-                    <div class="p-4 bg-light">
-                        <p id="name">Dariush Saberi (PhD)</p>
-                        <p id="affiliation">Educational AI Developer<br>LKS Faculty of Medicine,<br>The University
-                            of Hong Kong
-                        </p>
-                        <p>
-                            <img class="chat" src="https://feelface.com/static/stars_ai_small.png" style="width:50px;">
-                            <span class="chat">Chat with my CV</span>
-                        </p>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                        <h2 class="research">Research</h2>
+                        <p class="research">My research interests include Artificial Intelligence (AI), Natural Language
+                            Processing (NLP) and Computational Linguistics (CL)</p>
                     </div>
                 </div>
-                <div id="rightcontainer" class="col-md-4">
-                    <div id="bgpreview" class="p-4 bg-light border rounded-3" style="min-height:200px;">
-                        <!-- add a button "Regenerate Image "-->
-                        <button id="regenerate" type="button" class="btn btn-primary"
-                            style="margin-bottom: 10px;">Regenerate background</button>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                        <h3 class="readmore">About Me</h3>
+                        <p class="readmore">Click to read more.</p>
+                        <h3 class="publist">Publications</h3>
+                        <p class="publist">Click to see the list of my publications.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-md-stretch">
-            <div class="col-md-6">
-                <div class="h-100 p-5 text-white bg-dark rounded-3">
-                    <h2 class="research">Research</h2>
-                    <p class="research">My research interests include Artificial Intelligence (AI), Natural Language
-                        Processing (NLP) and Computational Linguistics (CL)</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3">
-                    <h3 class="readmore">About Me</h3>
-                    <p class="readmore">Click to read more.</p>
-                    <h3 class="publist">Publications</h3>
-                    <p class="publist">Click to see the list of my publications.</p>
-                </div>
-            </div>
-        </div>
-        <!-- a modal with opens on click to see "Contact" information -->
-        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactModalLabel">Contact</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <br><b>Contact Information</b><br>
-                        <p>Email: <a href="mailto:dariush@hku.hk">dariush@hku.hk</a></p>
-                        <p>Phone: +852 5649 4865</p>
-                        <p>Address: The Faculty of Medicine, The University of Hong Kong, 21 Sassoon Road, Pokfulam,
-                            Hong Kong</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- a modal with opens on click to see "Contact" information -->
+            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contactModalLabel">Contact</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            <br><b>Contact Information</b><br>
+                            <p>Email: <a href="mailto:dariush@hku.hk">dariush@hku.hk</a></p>
+                            <p>Phone: +852 5649 4865</p>
+                            <p>Address: The Faculty of Medicine, The University of Hong Kong, 21 Sassoon Road, Pokfulam,
+                                Hong Kong</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <!-- a modal with opens on click to "read about me" -->
-        <div class="modal fade" id="aboutMeModal" tabindex="-1" aria-labelledby="aboutMeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="aboutMeModalLabel">About Me</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <br><b>About Me: A Career in Language Technology and Education</b><br>
-                        <p>
-                        <p>Dariush Saberi has been a driving force in the translation and language technology fields for
-                            over two decades. His career is marked by innovation, leadership, and a commitment to
-                            pushing the boundaries of AI applications in language and education.</p>
-                        <p><strong>Entrepreneurship and Translation Expertise:</strong></p>
-                        <ul>
-                            <li><strong>2001:</strong> Founded <a href="http://Tarjomeh.com">Tarjomeh.com</a>, Iran’s
-                                first online software localization platform, which served over 400 international
-                                companies. This milestone established his commitment to bridging language barriers
-                                through technology.</li>
-                        </ul>
-                        <p><strong>Academic Pursuits and Research:</strong></p>
-                        <ul>
-                            <li><strong>2015:</strong> Holds MA in Translation and Interpretation.</li>
-                            <li><strong>2020:</strong> Earned a PhD in Computational Linguistics from City University of
-                                Hong Kong, marking a significant step in his research journey.</li>
-                            <li><strong>2020-2021:</strong> Developed the Nominalization and Lexical Formality
-                                Application at The Halliday Centre for Intelligent Applications of Language Studies,
-                                City University of Hong Kong. This application, accessible on Github, utilizes
-                                cutting-edge Large Language Models (LLMs) like GPT-2, BERT, and XLM to automate
-                                nominalization and lexical substitution in ESL/EFL writing, providing a valuable tool
-                                for academic English enhancement.</li>
-                        </ul>
-                        <p><strong>Leadership in AI and Education:</strong></p>
-                        <ul>
-                            <li><strong>2022:</strong> Took on the position of AI Senior Developer for Large Language
-                                Models, continuing his work at the forefront of LLM technology and its application in
-                                language and translation.</li>
-                            <li><strong>2023:</strong> Assumed the role of AI Lead at i-Learner Education Center,
-                                applying his expertise to spearhead AI-driven educational initiatives.</li>
-                            <li><strong>July 2024:</strong> Transitioning to The Faculty of Medicine, The University of
-                                Hong Kong, as IT Manager and Educational AI Developer, further solidifying his
-                                dedication to integrating AI within educational contexts.</li>
-                        </ul>
-                        <p><strong>Community Engagement and Continued Contributions:</strong></p>
-                        <ul>
-                            <li>Serves as Web Manager for the International Linguistics Association, demonstrating his
-                                commitment to the international linguistics community and showcasing his diverse skills.
-                            </li>
-                            <li>Remains affiliated with The Halliday Centre for Intelligent Applications of Language
-                                Studies, reflecting his enduring dedication to the advancement of the field.</li>
-                        </ul>
-                        </p>
+            <!-- a modal with opens on click to "read about me" -->
+            <div class="modal fade" id="aboutMeModal" tabindex="-1" aria-labelledby="aboutMeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="aboutMeModalLabel">About Me</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            <br><b>About Me: A Career in Language Technology and Education</b><br>
+                            <p>
+                            <p>Dariush Saberi has been a driving force in the translation and language technology fields
+                                for
+                                over two decades. His career is marked by innovation, leadership, and a commitment to
+                                pushing the boundaries of AI applications in language and education.</p>
+                            <p><strong>Entrepreneurship and Translation Expertise:</strong></p>
+                            <ul>
+                                <li><strong>2001:</strong> Founded <a href="http://Tarjomeh.com">Tarjomeh.com</a>,
+                                    Iran’s
+                                    first online software localization platform, which served over 400 international
+                                    companies. This milestone established his commitment to bridging language barriers
+                                    through technology.</li>
+                            </ul>
+                            <p><strong>Academic Pursuits and Research:</strong></p>
+                            <ul>
+                                <li><strong>2015:</strong> Holds MA in Translation and Interpretation.</li>
+                                <li><strong>2020:</strong> Earned a PhD in Computational Linguistics from City
+                                    University of
+                                    Hong Kong, marking a significant step in his research journey.</li>
+                                <li><strong>2020-2021:</strong> Developed the Nominalization and Lexical Formality
+                                    Application at The Halliday Centre for Intelligent Applications of Language Studies,
+                                    City University of Hong Kong. This application, accessible on Github, utilizes
+                                    cutting-edge Large Language Models (LLMs) like GPT-2, BERT, and XLM to automate
+                                    nominalization and lexical substitution in ESL/EFL writing, providing a valuable
+                                    tool
+                                    for academic English enhancement.</li>
+                            </ul>
+                            <p><strong>Leadership in AI and Education:</strong></p>
+                            <ul>
+                                <li><strong>2022:</strong> Took on the position of AI Senior Developer for Large
+                                    Language
+                                    Models, continuing his work at the forefront of LLM technology and its application
+                                    in
+                                    language and translation.</li>
+                                <li><strong>2023:</strong> Assumed the role of AI Lead at i-Learner Education Center,
+                                    applying his expertise to spearhead AI-driven educational initiatives.</li>
+                                <li><strong>July 2024:</strong> Transitioning to The Faculty of Medicine, The University
+                                    of
+                                    Hong Kong, as IT Manager and Educational AI Developer, further solidifying his
+                                    dedication to integrating AI within educational contexts.</li>
+                            </ul>
+                            <p><strong>Community Engagement and Continued Contributions:</strong></p>
+                            <ul>
+                                <li>Serves as Web Manager for the International Linguistics Association, demonstrating
+                                    his
+                                    commitment to the international linguistics community and showcasing his diverse
+                                    skills.
+                                </li>
+                                <li>Remains affiliated with The Halliday Centre for Intelligent Applications of Language
+                                    Studies, reflecting his enduring dedication to the advancement of the field.</li>
+                            </ul>
+                            </p>
 
 
-                        <br><b>Invited Talks and Workshops</b><br>
-                        <p>
-                            December 6, 2022. Machine Translation Post-editing and the Role of Big Data in Technical
-                            Translation. <a href='https://www.addnlp.com/ICELEAL2022Poster_revised_Dec6-92022.pdf'
-                                target='_blank'>International Congress on English Language Education & Applied
-                                Linguistics 2022 (ICELEAL2022)</a> The Education University of Hong Kong.
-                        </p>
-                        <p>
-                            November 28, 2022. Automatic Assessment of Students' English Writing. <a
-                                href='https://www.addnlp.com/MAAL_AI_Webinar2022.pdf' target='_blank'>Webinar on
-                                Leveraging Artificial Intelligence in Applied Linguistics: Exploring Trends, Embracing
-                                Opportunities</a> Malaysian Association of Applied Linguistics (MAAL).
-                        </p>
-                        <p>
-                            April 17, 2022. In-house Professional Development Workshop: Artificial Intelligence (AI) in
-                            Language Learning. i-Learner Education Center, Hong Kong.
-                        </p>
-                        <p>
-                            December 4, 2021. <a href="https://ilaword.org/monthly_lectures/december2021.pdf">Automatic
-                                Assistance for Academic Word Usage</a>. International Linguistic Association.
-                        </p>
+                            <br><b>Invited Talks and Workshops</b><br>
+                            <p>
+                                December 6, 2022. Machine Translation Post-editing and the Role of Big Data in Technical
+                                Translation. <a href='https://www.addnlp.com/ICELEAL2022Poster_revised_Dec6-92022.pdf'
+                                    target='_blank'>International Congress on English Language Education & Applied
+                                    Linguistics 2022 (ICELEAL2022)</a> The Education University of Hong Kong.
+                            </p>
+                            <p>
+                                November 28, 2022. Automatic Assessment of Students' English Writing. <a
+                                    href='https://www.addnlp.com/MAAL_AI_Webinar2022.pdf' target='_blank'>Webinar on
+                                    Leveraging Artificial Intelligence in Applied Linguistics: Exploring Trends,
+                                    Embracing
+                                    Opportunities</a> Malaysian Association of Applied Linguistics (MAAL).
+                            </p>
+                            <p>
+                                April 17, 2022. In-house Professional Development Workshop: Artificial Intelligence (AI)
+                                in
+                                Language Learning. i-Learner Education Center, Hong Kong.
+                            </p>
+                            <p>
+                                December 4, 2021. <a
+                                    href="https://ilaword.org/monthly_lectures/december2021.pdf">Automatic
+                                    Assistance for Academic Word Usage</a>. International Linguistic Association.
+                            </p>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- a modal with opens on click to "read my research interests" -->
-        <div class="modal fade" id="researchModal" tabindex="-1" aria-labelledby="researchModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="researchModalLabel">Research</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <br><b>Research Interests</b><br>
-                        <p>My research interests include Artificial Intelligence (AI), Natural Language Processing (NLP)
-                            and Computational Linguistics (CL)</p>
-                        <p>My research focuses on the development of AI and CALL tools for language teaching and
-                            learning. I am particularly interested in the application of AI and NLP techniques to assist
-                            students in academic writing. My recent work includes the development of a writing
-                            assistance tool that helps students improve their academic writing skills by providing
-                            feedback on their use of academic vocabulary and nominalization.</p>
-                        <p>I am also interested in the use of large language models (LLMs) such as GPT, BERT, and XLM
-                            for language generation tasks. I have developed a number of tools that use LLMs to generate
-                            text, including a tool that automatically generates nominalizations in academic writing.</p>
-                        <p>My research also explores the use of AI and NLP techniques for text analysis and information
-                            retrieval. I have developed tools that analyze the effectiveness of abstracts and headlines
-                            in academic writing, as well as tools that analyze the use of conjunctive adverbs by L2
-                            learners in academic writings.</p>
-                        <p>My research has been published in a number of academic journals and conference proceedings,
-                            and I have presented my work at a number of international conferences and workshops.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- a modal with opens on click to "read my research interests" -->
+            <div class="modal fade" id="researchModal" tabindex="-1" aria-labelledby="researchModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="researchModalLabel">Research</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            <br><b>Research Interests</b><br>
+                            <p>My research interests include Artificial Intelligence (AI), Natural Language Processing
+                                (NLP)
+                                and Computational Linguistics (CL)</p>
+                            <p>My research focuses on the development of AI and CALL tools for language teaching and
+                                learning. I am particularly interested in the application of AI and NLP techniques to
+                                assist
+                                students in academic writing. My recent work includes the development of a writing
+                                assistance tool that helps students improve their academic writing skills by providing
+                                feedback on their use of academic vocabulary and nominalization.</p>
+                            <p>I am also interested in the use of large language models (LLMs) such as GPT, BERT, and
+                                XLM
+                                for language generation tasks. I have developed a number of tools that use LLMs to
+                                generate
+                                text, including a tool that automatically generates nominalizations in academic writing.
+                            </p>
+                            <p>My research also explores the use of AI and NLP techniques for text analysis and
+                                information
+                                retrieval. I have developed tools that analyze the effectiveness of abstracts and
+                                headlines
+                                in academic writing, as well as tools that analyze the use of conjunctive adverbs by L2
+                                learners in academic writings.</p>
+                            <p>My research has been published in a number of academic journals and conference
+                                proceedings,
+                                and I have presented my work at a number of international conferences and workshops.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- a modal with opens on click to list the publications -->
+            <div class="modal fade" id="publicationsModal" tabindex="-1" aria-labelledby="publicationsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="publicationsModalLabel">Publications</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            <br><b>Research Output</b><br>
+                            <p>Saberi, D., & Lee, John. & Webster, J. Jonathan (2020). Automatic Assistance for Academic
+                                Word Usage. <i>28th International Conference on Computational Linguistics
+                                    (COLING'2020)</i>
+                                <br><i class="w3-small" style="color:blue;">ACL</i> <a class="icons"
+                                    href="https://www.aclweb.org/anthology/2020.coling-main.196.pdf" target="_blank"><i
+                                        class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
+                                        Text</i></a>
+                            </p>
+                            <p>Saberi, D., & Lee, John. (2019). Noun Generation for Nominalization in Academic Writing.
+                                <i>INLG 2019 Workshop on Computational Creativity in Natural Language Generation</i>
+                                <br><i class="w3-small" style="color:blue;">ACL</i> <a class="icons"
+                                    href="https://www.aclweb.org/anthology/2019.ccnlg-1.6.pdf" target="_blank"><i
+                                        class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
+                                        Text</i></a>
+                            </p>
+                            <p>John S.Y. Lee, Lok Ming Eric Cheung, Dariush Saberi, Jonathan J. Webster (2019).
+                                Expanding
+                                Students’ Registerial Repertoire with a Writing Assistance Tool. <i>Journal of English
+                                    for
+                                    Academic Purposes</i> https://doi.org/10.1016/j.jeap.2019.100777<br>
+                                <i class="w3-small" style="color:blue;">Web of Science</i> <a class="icons"
+                                    href="https://doi.org/10.1016/j.jeap.2019.100777" target="_blank"> <i
+                                        class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
+                                        Text</i></a>
+                            </p>
+                            <p>Lee, J., & Saberi, D., & Lam, M., & Webster, J. (2018). Assisted Nominalization for
+                                Academic
+                                English Writing. <i>Proceedings of the Workshop on Intelligent Interactive Systems and
+                                    Language Generation (2IS&NLG), pages 26–30,
+                                    Tilburg, The Netherlands, November 5 2018.</i> <br><i class="w3-small"
+                                    style="color:blue;">ACL</i> <a class="icons"
+                                    href="https://aclweb.org/anthology/W18-6706" target="_blank"> <i
+                                        class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
+                                        Text</i></a>
+                                </a>
+                            </p>
+                            <p>Saberi, D., & Moshohor, S., & Tan, H., & Abdullah, A.N. (2017). The Analysis of the
+                                Effectiveness of an Online Abstract Checking Application. <i>Advanced Science
+                                    Letters</i><br>
+                                <i class="w3-small" style="color:blue;">Web of Science</i> <a class="icons"
+                                    href="https://www.researchgate.net/publication/294621702_The_Effectiveness_of_an_Online_Abstract_Checker_Application"
+                                    target="_blank"> <i class="fa fa-file-pdf-o" style="color:red"></i> <i
+                                        class="w3-small">Full Text</i></a>
+                            </p>
+                            <p>Saberi, D. (2016). Intrusions of textism into students' formal writing, reality or myth.
+                                <i>Pertanika Journal of Scholarly Research Reviews (PJSRR), 2</i>(3).
+                                <br> <i class="w3-small" style="color:blue;">Scopus</i> <a class="icons"
+                                    href="https://pjsrr.upm.edu.my/index.php/pjsrr/article/download/35/34"
+                                    target="_blank">
+                                    <i class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
+                                        Text</i></a>
+                            </p>
+                            <p>Saberi, D., & Chan, S. H. (2015). Snapshots of the relationship between photo, caption
+                                and
+                                headline in news articles on food.<i>Journal of Language & Communication, 2</i>(2).
+                                <br> <a class="icons"
+                                    href="http://www.fbmk.upm.edu.my/dokumen/FKBMK1_SEPT_2015_%282%29.pdf#89"
+                                    target="_blank"> <i class="fa fa-file-pdf-o" style="color:red"></i> <i
+                                        class="w3-small">Full Text</i></a>
+                            </p>
+                            <p>Saberi, D., & Tan, H., & Rahman, A. (2015). A Corpus Study on the Use of Conjunctive
+                                Adverbs
+                                by Asian L2 Learners in Academic Writings. <i>2nd Malaysia Corpus Research Colloquium,
+                                    UPM</i>
+                                <i class="w3-small" style="color:blue;"></i>
+                            </p>
+                            <br><b>Developed AI and CALL Tools</b><br>
+                            <p><a href="https://ilearner.space/v1/" target="_blank">iLearner Linguistic Toolkit</a> <i>a
+                                    collection of AI educational tools for language teaching and learning</i></p>
+                            <p><a href="https://github.com/dariush-saberi/formalwriter" target="_blank">FormalWriter</a>
+                                <i>a Computer Assisted Langauge Learning Tool for L2 Learners of Academic English
+                                    Writing</i>
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- a modal with opens on click to chat with the chatbot the footer should contain a send form -->
+            <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="chatModalLabel">Chat with my CV</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            <br><b>Chat with my CV</b><br>
+                            <p>Hi, I am Dariush Saberi, an Educational AI Manager at The Faculty of Medicine, The
+                                University
+                                of Hong Kong. I am here to help you with any questions you may have about my research,
+                                publications, or career. Feel free to ask me anything!</p>
+                            <p>How can I help you today?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Type your message here"
+                                        aria-label="Type your message here" aria-describedby="button-addon2">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        id="button-addon2">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
         </div>
 
-        <!-- a modal with opens on click to list the publications -->
-        <div class="modal fade" id="publicationsModal" tabindex="-1" aria-labelledby="publicationsModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="publicationsModalLabel">Publications</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <br><b>Research Output</b><br>
-                        <p>Saberi, D., & Lee, John. & Webster, J. Jonathan (2020). Automatic Assistance for Academic
-                            Word Usage. <i>28th International Conference on Computational Linguistics (COLING'2020)</i>
-                            <br><i class="w3-small" style="color:blue;">ACL</i> <a class="icons"
-                                href="https://www.aclweb.org/anthology/2020.coling-main.196.pdf" target="_blank"><i
-                                    class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
-                                    Text</i></a>
-                        </p>
-                        <p>Saberi, D., & Lee, John. (2019). Noun Generation for Nominalization in Academic Writing.
-                            <i>INLG 2019 Workshop on Computational Creativity in Natural Language Generation</i>
-                            <br><i class="w3-small" style="color:blue;">ACL</i> <a class="icons"
-                                href="https://www.aclweb.org/anthology/2019.ccnlg-1.6.pdf" target="_blank"><i
-                                    class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
-                                    Text</i></a>
-                        </p>
-                        <p>John S.Y. Lee, Lok Ming Eric Cheung, Dariush Saberi, Jonathan J. Webster (2019). Expanding
-                            Students’ Registerial Repertoire with a Writing Assistance Tool. <i>Journal of English for
-                                Academic Purposes</i> https://doi.org/10.1016/j.jeap.2019.100777<br>
-                            <i class="w3-small" style="color:blue;">Web of Science</i> <a class="icons"
-                                href="https://doi.org/10.1016/j.jeap.2019.100777" target="_blank"> <i
-                                    class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
-                                    Text</i></a>
-                        </p>
-                        <p>Lee, J., & Saberi, D., & Lam, M., & Webster, J. (2018). Assisted Nominalization for Academic
-                            English Writing. <i>Proceedings of the Workshop on Intelligent Interactive Systems and
-                                Language Generation (2IS&NLG), pages 26–30,
-                                Tilburg, The Netherlands, November 5 2018.</i> <br><i class="w3-small"
-                                style="color:blue;">ACL</i> <a class="icons"
-                                href="https://aclweb.org/anthology/W18-6706" target="_blank"> <i
-                                    class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full
-                                    Text</i></a>
-                            </a>
-                        </p>
-                        <p>Saberi, D., & Moshohor, S., & Tan, H., & Abdullah, A.N. (2017). The Analysis of the
-                            Effectiveness of an Online Abstract Checking Application. <i>Advanced Science
-                                Letters</i><br>
-                            <i class="w3-small" style="color:blue;">Web of Science</i> <a class="icons"
-                                href="https://www.researchgate.net/publication/294621702_The_Effectiveness_of_an_Online_Abstract_Checker_Application"
-                                target="_blank"> <i class="fa fa-file-pdf-o" style="color:red"></i> <i
-                                    class="w3-small">Full Text</i></a>
-                        </p>
-                        <p>Saberi, D. (2016). Intrusions of textism into students' formal writing, reality or myth.
-                            <i>Pertanika Journal of Scholarly Research Reviews (PJSRR), 2</i>(3).
-                            <br> <i class="w3-small" style="color:blue;">Scopus</i> <a class="icons"
-                                href="https://pjsrr.upm.edu.my/index.php/pjsrr/article/download/35/34" target="_blank">
-                                <i class="fa fa-file-pdf-o" style="color:red"></i> <i class="w3-small">Full Text</i></a>
-                        </p>
-                        <p>Saberi, D., & Chan, S. H. (2015). Snapshots of the relationship between photo, caption and
-                            headline in news articles on food.<i>Journal of Language & Communication, 2</i>(2).
-                            <br> <a class="icons"
-                                href="http://www.fbmk.upm.edu.my/dokumen/FKBMK1_SEPT_2015_%282%29.pdf#89"
-                                target="_blank"> <i class="fa fa-file-pdf-o" style="color:red"></i> <i
-                                    class="w3-small">Full Text</i></a>
-                        </p>
-                        <p>Saberi, D., & Tan, H., & Rahman, A. (2015). A Corpus Study on the Use of Conjunctive Adverbs
-                            by Asian L2 Learners in Academic Writings. <i>2nd Malaysia Corpus Research Colloquium,
-                                UPM</i>
-                            <i class="w3-small" style="color:blue;"></i>
-                        </p>
-                        <br><b>Developed AI and CALL Tools</b><br>
-                        <p><a href="https://ilearner.space/v1/" target="_blank">iLearner Linguistic Toolkit</a> <i>a
-                                collection of AI educational tools for language teaching and learning</i></p>
-                        <p><a href="https://github.com/dariush-saberi/formalwriter" target="_blank">FormalWriter</a>
-                            <i>a Computer Assisted Langauge Learning Tool for L2 Learners of Academic English
-                                Writing</i>
-                        </p>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- a modal with opens on click to chat with the chatbot the footer should contain a send form -->
-        <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="chatModalLabel">Chat with my CV</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <br><b>Chat with my CV</b><br>
-                        <p>Hi, I am Dariush Saberi, an Educational AI Manager at The Faculty of Medicine, The University
-                            of Hong Kong. I am here to help you with any questions you may have about my research,
-                            publications, or career. Feel free to ask me anything!</p>
-                        <p>How can I help you today?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <form>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Type your message here"
-                                    aria-label="Type your message here" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Send</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br><br>
-    </div>
+    </main>
     <!-- add footer with light gray background and min-height of 100px and text-align center -->
-    <footer class="p-1 bg-dark text-center" style="min-height: 100px;width: 100%;">
+    <footer class="mt-auto bg-dark text-center">
         <div class="container">
             <p class="text-muted">
                 <span style="font-size: 12px;">This profile uses LLMs to generate text and Diffusion models to generate
@@ -409,10 +451,12 @@
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <script>
+        const footerHeight = $("footer").height();
+        $(".container.content").css("min-height", "calc(100vh - " + footerHeight + "px)");
         // open the modal on click
         $('.publist').click(function () {
             $('#publicationsModal').modal('show');
