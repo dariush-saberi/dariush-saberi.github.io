@@ -565,7 +565,7 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    datasrc = 'data:image/png;base64,' + data;
+                    datasrc = 'data:image/png;base64,' + data[0];
                     var img = new Image();
                     img.src = datasrc;
                     img.crossOrigin = 'Anonymous';
